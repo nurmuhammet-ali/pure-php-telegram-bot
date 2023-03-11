@@ -1,6 +1,6 @@
 <?php 
 
-function getUpdates()
+function getUpdates(): ?object
 {
 	$curl = curl_init();
 	curl_setopt_array($curl, [
@@ -19,7 +19,7 @@ function getUpdates()
 }
 
 
-function sendMessage(int $chat_id, string $message)
+function sendMessage(int $chat_id, string $message): void
 {
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
@@ -38,19 +38,50 @@ function sendMessage(int $chat_id, string $message)
 	curl_close($curl);
 }
 
-function sendMessageToAll(string $message)
+function syncUpdatesWithDB(?object $updates): bool
 {
-	$chats = getUpdates();
+	if (is_null($updates)) {
+		return false;
+	}
 
-	$chat_ids = [];
-	foreach ($chats->result as $chat) {
-		if (! in_array($chat->message->chat->id, $chat_ids)) {
-			$chat_ids[] = $chat->message->chat->id;
+	$registeredUsers = DB::query('select * from users');
+	$users = [];
+	foreach($updates->result as $update) {
+		$chat = $update->message->chat;
 
-			sendMessage(
-				chat_id: $chat->message->chat->id,
-				message: $message
-			);
+		// If username is in db or already inn users array, skip
+		if (keyValueExistsInArray($registeredUsers, 'telegram_username', $chat->username) || keyValueExistsInArray($users, 'username', $chat->username)) {
+			continue;
 		}
+
+		$users[] = [
+			'chat_id' => $chat->id,
+			'first_name' => $chat->first_name,
+			'username' => $chat->username
+		];
+	}
+
+	foreach ($users as $user) {
+		DB::insert('users', [
+		  'telegram_username' => $user['username'],
+		  'telegram_first_name' => $user['first_name'],
+		  'telegram_chat_id' => $user['chat_id']
+		]);
+	}
+
+	return true;
+}
+
+function sendMessageToAll(string $message): void
+{
+	syncUpdatesWithDB(getUpdates());
+
+	$users = DB::query('select * from users');
+
+	foreach ($users as $user) {
+		sendMessage(
+			chat_id: $user['telegram_chat_id'],
+			message: $message
+		);
 	}
 }

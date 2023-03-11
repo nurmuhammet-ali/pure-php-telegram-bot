@@ -5,26 +5,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		die('Action is not set');
 	}
 
-	if ($_POST['action'] == 'getUpdates') {
-		return api('getUpdates');
-	}
-
-	if ($_POST['action'] == 'sendMessageToAll') {
-		if (! isset($_POST['message']) || $_POST['message'] == "") {
-			die('no message?');
-		}
-
-		sendMessageToAll($_POST['message']);
-
-		$response = [
-			'ok' => true,
-			'message' => 'Successefully sent'
-		];
-
-		header("Content-Type: application/json");
-		echo json_encode($response);
-		return;
-	}
-
-	die("You're at wrong place boddy :}");
+	return match ($_POST['action']) {
+		'getUpdates' => api('getUpdates'),
+		'sendMessageToAll' => api('sendMessageToAll'),
+		default => api('404')
+	};
 }
