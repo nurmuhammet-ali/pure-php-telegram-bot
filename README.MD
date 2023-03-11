@@ -17,10 +17,6 @@ MYSQL_PASSWORD=password
 `getUpdates()` #  updates db with latest chats & users
 
 
-
-
-
-
 **METHOD**: `POST`
 **URI**: `/`
 **FORM-DATA**:
@@ -33,6 +29,8 @@ MYSQL_PASSWORD=password
 ```
 
 `sendMessageToAll()` #  sends message to all users of bot
+
+
 **METHOD**: `POST`
 **URI**: `/`
 **FORM-DATA**:
@@ -46,6 +44,8 @@ MYSQL_PASSWORD=password
 ```
 
 `sendMessageToUsername()` #  sends message by username
+
+
 **METHOD**: `POST`
 **URI**: `/`
 **FORM-DATA**:
