@@ -1,23 +1,23 @@
 <?php
 
-function home_dir(string $path = '')
+function home_dir(string $path = ''): string
 {
 	return strlen($path) == 0 
-		? __DIR__ . '/../'
-		: __DIR__ . '/../' . $path;
+		? HOME_DIR . DIRECTORY_SEPARATOR
+		: HOME_DIR . DIRECTORY_SEPARATOR . $path;
 }
 
-function pages(string|int $name)
+function pages(string|int $name): void
 {
-	require home_dir('pages/' . $name .'.php');
+	require_once home_dir('pages/' . $name .'.php');
 }
 
-function api(string|int $name)
+function api(string|int $name): void
 {
-	require home_dir('api/' . $name .'.php');
+	require_once home_dir('api/' . $name .'.php');
 }
 
-function keyValueExistsInArray(array $datas, string|int $key, string|int $value)
+function keyValueExistsInArray(array $datas, string|int $key, string|int $value): bool
 {
 	foreach ($datas as $data) {
 		if (isset($data[$key]) && $data[$key] == $value) {
