@@ -5,6 +5,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		die('Action is not set');
 	}
 
+	if ($_POST['action'] == 'getUpdates') {
+		return api('getUpdates');
+	}
+
 	if ($_POST['action'] == 'sendMessageToAll') {
 		if (! isset($_POST['message']) || $_POST['message'] == "") {
 			die('no message?');
