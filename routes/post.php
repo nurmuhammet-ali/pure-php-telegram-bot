@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	return match ($_POST['action']) {
 		'getUpdates' => api('getUpdates'),
 		'sendMessageToAll' => api('sendMessageToAll'),
+		'sendMessageToUsername' => api('sendMessageToUsername'),
 		default => api('404')
 	};
 }

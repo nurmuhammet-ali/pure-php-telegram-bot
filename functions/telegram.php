@@ -76,11 +76,25 @@ function sendMessageToAll(string $message): void
 {
 	syncUpdatesWithDB(getUpdates());
 
-	$users = DB::query('select * from users');
+	$users = DB::query('SELECT * FROM users');
 
 	foreach ($users as $user) {
 		sendMessage(
 			chat_id: $user['telegram_chat_id'],
+			message: $message
+		);
+	}
+}
+
+function sendMessageToUsername(string $username, string|int $message)
+{
+	syncUpdatesWithDB(getUpdates());
+
+	$data = DB::queryFirstRow('SELECT * FROM users WHERE telegram_username = %s', $username);
+
+	if ($data) {
+		sendMessage(
+			chat_id: $data['telegram_chat_id'], 
 			message: $message
 		);
 	}

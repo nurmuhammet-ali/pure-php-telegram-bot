@@ -9,11 +9,6 @@ if (! isset($_POST['message']) || $_POST['message'] == "") {
 
 sendMessageToAll($_POST['message']);
 
-$response = [
-	'ok' => true,
+return response()->json([
 	'message' => 'Successefully sent'
-];
-
-header("Content-Type: application/json");
-echo json_encode($response);
-return;
+]);
