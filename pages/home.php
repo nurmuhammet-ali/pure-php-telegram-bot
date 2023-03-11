@@ -1,4 +1,3 @@
 <?php 
 
-echo 'Hello';
-return;
+echo "Homepage";

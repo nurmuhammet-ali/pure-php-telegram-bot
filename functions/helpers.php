@@ -1,6 +1,11 @@
 <?php
 
+function home_dir()
+{
+	return __DIR__ . '/../';
+}
+
 function pages($name)
 {
-	return __DIR__ . '../';	
+	require home_dir().'pages/' . $name .'.php';
 }

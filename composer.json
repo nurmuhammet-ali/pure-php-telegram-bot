@@ -1,5 +1,5 @@
 {
     "require": {
-        "opis/database": "^4.0"
+        "sergeytsalkov/meekrodb": "^2.4"
     }
 }
