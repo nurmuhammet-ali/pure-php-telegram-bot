@@ -15,6 +15,12 @@ MYSQL_PASSWORD=password
 
 ## Available methods
 `getUpdates()` #  updates db with latest chats & users
+
+
+
+
+
+
 **METHOD**: `POST`
 **URI**: `/`
 **FORM-DATA**:
