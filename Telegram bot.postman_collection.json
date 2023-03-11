@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "9481b4f6-7024-4fb8-b235-855b29cf2799",
+		"name": "Telegram bot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sendMessageToUsername",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "action",
+							"value": "sendMessageToUsername",
+							"type": "default"
+						},
+						{
+							"key": "message",
+							"value": "Does this working",
+							"type": "default"
+						},
+						{
+							"key": "username",
+							"value": "nurmuhammetali",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8888",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sendMessageToAll",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "action",
+							"value": "sendMessageToAll",
+							"type": "default"
+						},
+						{
+							"key": "message",
+							"value": "Hello",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8888",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUpdates",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "action",
+							"value": "getUpdates",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8888",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888"
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "telegram_token",
+			"value": "5934293221:AAGD4eAmVliZFgqCptdgw22i8fyI9X2X3QI",
+			"type": "default"
+		}
+	]
+}
