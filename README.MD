@@ -53,9 +53,9 @@ MYSQL_PASSWORD=password
 **METHOD**: `POST`  
 **URI**: `/`  
 **FORM-DATA**:  
-    `action`: `sendMessageToUsername`
-    `username`: `username`
-    `message`: `Message to be sent`
+>    `action`: `sendMessageToUsername`
+>    `username`: `username`
+>    `message`: `Message to be sent`
     
 **RESPONSE**: 
 ```json
