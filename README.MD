@@ -14,16 +14,11 @@ MYSQL_PASSWORD=password
 ```
 
 ## Available methods
-`getUpdates()` #  updates db with latest chats & users
-
-
-**METHOD**: `POST`
-
-**URI**: `/`
-
+`getUpdates()` #  updates db with latest chats & users  
+**METHOD**: `POST`  
+**URI**: `/`  
 **FORM-DATA**:
-    `action`: `getUpdates`
-    
+> `action`: `getUpdates`
 **RESPONSE**: 
 ```json
 {
@@ -31,17 +26,12 @@ MYSQL_PASSWORD=password
 }
 ```
 
-`sendMessageToAll()` #  sends message to all users of bot
-
-
-**METHOD**: `POST`
-
-**URI**: `/`
-
+`sendMessageToAll()` #  sends message to all users of bot  
+**METHOD**: `POST`  
+**URI**: `/`  
 **FORM-DATA**:
-    `action`: `sendMessageToAll`
-    `message`: `Message to be sent`
-    
+>    `action`: `sendMessageToAll`  
+>    `message`: `Message to be sent`  
 **RESPONSE**: 
 ```json
 {
@@ -52,11 +42,10 @@ MYSQL_PASSWORD=password
 `sendMessageToUsername()` #  sends message by username  
 **METHOD**: `POST`  
 **URI**: `/`  
-**FORM-DATA**:  
+**FORM-DATA**:
 >    `action`: `sendMessageToUsername`  
 >    `username`: `username`  
 >    `message`: `Message to be sent`  
-    
 **RESPONSE**: 
 ```json
 {
