@@ -49,10 +49,8 @@ MYSQL_PASSWORD=password
 }
 ```
 
-`sendMessageToUsername()` #  sends message by username
-
-
-**METHOD**: `POST` <br />
+`sendMessageToUsername()` #  sends message by username  
+**METHOD**: `POST`  
 **URI**: `/`
 **FORM-DATA**:
     `action`: `sendMessageToUsername`
