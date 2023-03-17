@@ -119,11 +119,5 @@
 			}
 		}
 	],
-	"variable": [
-		{
-			"key": "telegram_token",
-			"value": "5934293221:AAGD4eAmVliZFgqCptdgw22i8fyI9X2X3QI",
-			"type": "default"
-		}
-	]
+	"variable": []
 }
