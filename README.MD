@@ -19,6 +19,7 @@ MYSQL_PASSWORD=password
 **URI**: `/`  
 **FORM-DATA**:
 > `action`: `getUpdates`
+
 **RESPONSE**: 
 ```json
 {
@@ -32,6 +33,7 @@ MYSQL_PASSWORD=password
 **FORM-DATA**:
 >    `action`: `sendMessageToAll`  
 >    `message`: `Message to be sent`  
+
 **RESPONSE**: 
 ```json
 {
@@ -46,6 +48,7 @@ MYSQL_PASSWORD=password
 >    `action`: `sendMessageToUsername`  
 >    `username`: `username`  
 >    `message`: `Message to be sent`  
+
 **RESPONSE**: 
 ```json
 {
