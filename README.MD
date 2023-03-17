@@ -53,9 +53,7 @@ MYSQL_PASSWORD=password
 
 
 **METHOD**: `POST`
-
 **URI**: `/`
-
 **FORM-DATA**:
     `action`: `sendMessageToUsername`
     `username`: `username`
